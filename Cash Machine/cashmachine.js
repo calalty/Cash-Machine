@@ -68,22 +68,18 @@ const optMenu = () => {
 let pinAttempts = 3
 let userPin = 1234
 const checkPin = () => {
-    userInput = prompt("Welcome to Alton ATM, Please enter your PIN:")
-    console.log(userInput)
-
-    while (true) {
-    if (userInput == userPin) {
-        optMenu()
-    }
-    else if (userInput != userPin) {
-        pinAttempts -= 1
-        alert(`You have ${pinAttempts+1} attempts left.`);
-        checkPin()
-    }
-    else if (pinAttempts < 3) {
-    alert("ACCOUNT LOCKED")
-}
-}
+	while (true) {
+		userInput = prompt("Welcome to Alton ATM, Please enter your PIN:")
+		if (userInput == userPin) {
+			optMenu()
+		} else if (pinAttempts < 0) {
+			alert("ACCOUNT LOCKED")
+			return;
+		} else if (userInput != userPin) {
+			pinAttempts -= 1
+			alert(`You have ${pinAttempts+1} attempts left.`);
+			return checkPin(); // need to return your recursive function call
+		}
+	}
 }
 checkPin()
-
