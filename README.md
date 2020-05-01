@@ -1,6 +1,6 @@
 # Cash-Machine
 
-[x] Provide a user with a personal identification number, called a pin, which is made up of 4 numbers. The user will use this number to login into the virtual javascript ATM. No need for a ATM card, the pin number will enable user to login with just the pin.
+[x] Provide a user with a personal identification number, called a pin, which is made up of 4 numbers. The user will use this number to login into the virtual javascript ATM. The pin number will enable user to login with just the pin.
 
 [x] The user should be able to deposit, withdraw, transfer between checking and saving accounts and logout
 
