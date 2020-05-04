@@ -6,11 +6,15 @@
 // The user shouldn’t be able to transfer/withdraw more than he/she has
 // Input fields don’t accept unexpected characters
 
+// Check User Balance 
+
 let userBalance = 5000
 const checkBalance = () => {
     userInput = alert(`Your bank balance is £${userBalance}`)
     optMenu()
 }
+
+// Withdraw Cash
 
 const withdrawl = () => {
     userInput = prompt("How much would you like to withdraw?")
@@ -26,6 +30,8 @@ const withdrawl = () => {
 }
 }
 
+// Deposit Cash
+
 const depositAmount = () => {
     userInput = prompt("How much would you like to deposit?")
     let newdBalance = userBalance += parseInt(userInput)
@@ -34,14 +40,17 @@ const depositAmount = () => {
     return newdBalance
 }
 
+// Logout of ATM 
+
 const logout = () => {
     alert("Thankyou for using Altons Atm, Goodbye.")
     exit
 }
 
+// Options Menu
 
 const optMenu = () => {
-    userInput = prompt("Please choose an option:\n1. Check Balance\n2. Withdraw Cash\n3. Deposit Cash\n4. Change PIN\n5. LOGOUT")
+    userInput = prompt("Please choose an option:\n1. Check Balance\n2. Withdraw Cash\n3. Deposit Cash\n4. Change PIN\n5. Logout.")
 
     if (userInput == 1) {
         checkBalance()
@@ -50,14 +59,35 @@ const optMenu = () => {
     } else if (userInput == 3) {
         depositAmount()
     } else if (userInput == 4) {
-        changePin()
+        pinValidation()
     } else if (userInput == 5) {
         logout()
     }
 }
 
+// Pin validation FOR Changing Pin
+
 let pinAttempts = 3
 let userPin = 1234
+const pinValidation = () => {
+    while (true) {
+    userInput = prompt("Please Enter Your Pin:")
+    if (userInput == userPin) {
+        changePin()
+    } else if (pinAttempts < 0) {
+        alert("ACCOUNT LOCKED")
+        return
+    } else if (userInput != userPin) {
+        pinAttempts -= 1
+        alert(`You have ${pinAttempts+1} attempts left.`)
+        return pinValidation()
+
+}
+}
+}
+
+// Log into ATM
+
 const checkPin = () => {
 	while (true) {
 		userInput = prompt("Welcome to Altons ATM, Please enter your PIN:")
@@ -100,5 +130,18 @@ checkPin()
 //     }
 //     else {
 //     alert (`ERROR`)
+//     }
+// }
+
+// const changePin = () => {
+//     newPin = userInput
+//     userInput = prompt("Enter New Pin:")
+//     if (userInput == newPin) {
+//     alert("PIN CHANGED")
+//     optMenu()
+//     return
+//     }
+//     else if (newPin != userInput) {
+//     alert("INVALID")
 //     }
 // }
