@@ -8,10 +8,10 @@
 
 - [ ] The user shouldn’t be able to enter letters
 
-- [ ] The user shouldn’t be able to withdraw negative money
+- [x] The user shouldn’t be able to withdraw negative money
 
 - [x] The user shouldn’t be able to transfer/withdraw more than he/she has
 
 - [ ] Input fields don’t accept unexpected characters
 
-- [ ] Allow user to change pin
+- [x] Allow user to change pin
