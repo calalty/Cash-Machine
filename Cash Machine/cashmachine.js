@@ -47,6 +47,15 @@ const logout = () => {
     exit
 }
 
+// Change Pin
+
+const changePin = () => {
+    userPin = prompt("Enter New Pin:")
+    alert("PIN CHANGED")
+    optMenu()
+    return userPin
+}
+
 // Options Menu
 
 const optMenu = () => {
@@ -75,8 +84,8 @@ const pinValidation = () => {
     if (userInput == userPin) {
         changePin()
     } else if (pinAttempts < 0) {
-        alert("ACCOUNT LOCKED")
-        return
+        alert("Maximum Attempts, Pin Change Failed")
+        optMenu()
     } else if (userInput != userPin) {
         pinAttempts -= 1
         alert(`You have ${pinAttempts+1} attempts left.`)
@@ -85,6 +94,7 @@ const pinValidation = () => {
 }
 }
 }
+
 
 // Log into ATM
 
@@ -145,3 +155,5 @@ checkPin()
 //     alert("INVALID")
 //     }
 // }
+
+
